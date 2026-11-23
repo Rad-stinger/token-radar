@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Launch Radar — pre-token protocols ranked by implied launch value</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<a class="skip" href="#board">Skip to the board</a>
+<header class="masthead">
+  <div class="brand">
+    <span class="mark" aria-hidden="true"><i></i><i></i><i></i></span>
+    <div>
+      <h1>Launch Radar</h1>
+      <p class="tagline">Protocols with no token yet, ranked by what a launch would be worth</p>
+    </div>
+  </div>
+  <dl class="provenance">
+    <div><dt>Snapshot</dt><dd id="asOf">—</dd></div>
+    <div><dt>Watchlist</dt><dd id="watchCount">—</dd></div>
+    <div><dt>Model</dt><dd id="modelId">—</dd></div>
+  </dl>
+</header>
+
+<section class="model-strip" id="modelStrip" aria-label="How the value model works"></section>
+
+<section class="stats" id="stats" aria-label="Board summary"></section>
+
+<div class="controls" role="search">
+  <label class="search">
+    <span class="visually-hidden">Search protocols</span>
+    <input id="q" type="search" placeholder="Search protocol, category or chain…" autocomplete="off" spellcheck="false">
+  </label>
+  <label class="pick"><span>Category</span><select id="category"><option value="all">All categories</option></select></label>
+  <label class="pick"><span>Chain</span><select id="chain"><option value="all">All chains</option></select></label>
+  <label class="pick"><span>Sort</span><select id="sort">
+    <option value="rank">Rank (implied value)</option>
+    <option value="tvl">TVL</option>
+    <option value="growth">7-day growth</option>
+    <option value="beta">Implied ÷ TVL</option>
+    <option value="age">Age with no token</option>
+    <option value="name">Name</option>
+  </select></label>
+  <div class="tabs" role="tablist" aria-label="Board">
+    <button role="tab" id="tab-radar" aria-selected="true" data-tab="radar">Radar</button>
+    <button role="tab" id="tab-live" aria-selected="false" data-tab="live">Already trading</button>
+  </div>
+</div>
+
+<main id="board" tabindex="-1">
+  <p class="result-line" id="resultLine"></p>
+  <div class="table-wrap">
+    <table id="table">
+      <thead><tr id="head"></tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+  <p class="empty" id="empty" hidden>No protocol matches these filters. Clear the search or pick another category.</p>
+  <p class="footnote" id="footnote"></p>
+</main>
+
+<aside id="detail" class="detail" aria-hidden="true" aria-label="Protocol detail"></aside>
+
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
